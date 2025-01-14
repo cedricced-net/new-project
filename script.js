@@ -12,12 +12,12 @@ function createTaskView(task) {
     performButton.addEventListener("click", () => toggleDone(+li.getAttribute("id")));
     
     const editButton = document.createElement("button");
-    editButton.classList.add('edit-btn')
+    editButton.classList.add('edit-btn');
     li.appendChild(editButton);
     editButton.addEventListener("click", ()=> editingTask(+li.getAttribute("id")))
     
     const delButton = document.createElement("button");
-    delButton.classList.add('del-btn')
+    delButton.classList.add('del-btn');
     li.appendChild(delButton);
     delButton.addEventListener("click", () => delTask(+li.getAttribute("id")));
 
@@ -98,17 +98,17 @@ function createTaskView(task) {
     const span = taskView.querySelector("span");
     span.style.display = "none";
     
-    const input = document.createElement("input")
+    const input = document.createElement("input");
     input.type = "text";
     input.value = task.label;
     taskView.insertBefore(input, span.nextSibling);
 
     const saveButton = document.createElement("button")
-    saveButton.innerText = "Сохранить?";
+    saveButton.innerText = "Сохранить";
     saveButton.classList.add('editSaveButton')
     taskView.appendChild(saveButton);
 
-    saveButton.addEventListener("click", () => applyEditingTask(id, input.value))
+    saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
   }
 
   function applyEditingTask(id, newLabel){
@@ -119,12 +119,11 @@ function createTaskView(task) {
 
     const taskView = document.getElementById(id);
     const input = taskView.querySelector('input');
-    const saveButton =taskView.querySelector('.editSaveButton')
-
+    const saveButton =taskView.querySelector('.editSaveButton');
     taskView.removeChild(input);
     taskView.removeChild(saveButton);
 
-    const span =taskView.querySelector("span");
+    const span = taskView.querySelector("span");
     span.style.display = "inline-block";
   }
   
