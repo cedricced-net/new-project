@@ -10,3 +10,27 @@ body{
 ul{
   list-style-type: none;
 }
+.perform-btn {
+  background: url('pic/perform-btn.png') no-repeat center / contain; 
+  border: none;
+  padding: 10px;
+  height: 24x;
+  width: 24px;
+  cursor: pointer;
+}
+.edit-btn {
+  background: url('pic/edit-btn.png') no-repeat center / contain; 
+  border: none;
+  padding: 10px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.del-btn {
+  background: url('pic/del-btn.png') no-repeat center / contain; 
+  border: none;
+  padding: 10px;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
