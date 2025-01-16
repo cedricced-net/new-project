@@ -110,11 +110,12 @@ function editingTask(id){
 
   saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
 
-
+  const editButton = taskView.querySelector('.edit-btn');
+  editButton.style.display = "none"
   
 }
 
-function applyEditingTask(id, newLabel, editButton){
+function applyEditingTask(id, newLabel){
   const task = data.find((e) => e.id === id);
   if (!task) return;
   task.label = newLabel;
@@ -130,7 +131,8 @@ function applyEditingTask(id, newLabel, editButton){
   const span =taskView.querySelector("span");
   span.style.display = "inline-block";
  
-
+  const editButton = taskView.querySelector('.edit-btn');
+  editButton.style.display = "block"
 }
 
 
