@@ -94,43 +94,7 @@ function createTaskView(task) {
   function editingTask(id){
     const task = data.find((e) => e.id === id);
     if (!task) return;
-    const tas
-    const saveButton = document.createElement("button")
-    saveButton.innerText = "Сохранить";
-    saveButton.classList.add('editSaveButton')
-    taskView.appendChild(saveButton);
-
-    saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
-
-    const editButton = document.querySelectorAll('.edit-btn');
-    editButton.style.display = "none"
-    
-  }
-  
-  function applyEditingTask(id, newLabel){
-    const task = data.find((e) => e.id === id);
-    if (!task) return;
-    task.label = newLabel;
-    renderTask(task);
-
     const taskView = document.getElementById(id);
-    const input = taskView.querySelector('input');
-    const saveButton =taskView.querySelector('.editSaveButton')
-
-    taskView.removeChild(input);
-    taskView.removeChild(saveButton);
-
-    const span =taskView.querySelector("span");
-    span.style.display = "inline-block";
-    const editButton = document.querySelector('.edit-btn');
-    editButton.style.display = "block"
-  }
-  
-
-  
-  renderPage();
-  renderTaskList(data);
-  kView = document.getElementById(id);
     const span = taskView.querySelector("span");
     span.style.display = "none";
     
