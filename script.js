@@ -110,8 +110,7 @@ function editingTask(id){
 
   saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
 
-  const editButton = document.querySelector('.edit-btn');
-  editButton.style.display = "none"
+
   
 }
 
@@ -131,8 +130,7 @@ function applyEditingTask(id, newLabel, editButton){
   const span =taskView.querySelector("span");
   span.style.display = "inline-block";
  
-  const editButton = document.querySelector('.edit-btn');
-  editButton.style.display = "block"
+
 }
 
 
