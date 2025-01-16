@@ -12,12 +12,12 @@ function createTaskView(task) {
     performButton.addEventListener("click", () => toggleDone(+li.getAttribute("id")));
     
     const editButton = document.createElement("button");
-    editButton.classList.add('edit-btn');
+    editButton.classList.add('edit-btn')
     li.appendChild(editButton);
     editButton.addEventListener("click", ()=> editingTask(+li.getAttribute("id")))
     
     const delButton = document.createElement("button");
-    delButton.classList.add('del-btn');
+    delButton.classList.add('del-btn')
     li.appendChild(delButton);
     delButton.addEventListener("click", () => delTask(+li.getAttribute("id")));
 
@@ -94,7 +94,43 @@ function createTaskView(task) {
   function editingTask(id){
     const task = data.find((e) => e.id === id);
     if (!task) return;
+    const tas
+    const saveButton = document.createElement("button")
+    saveButton.innerText = "Сохранить";
+    saveButton.classList.add('editSaveButton')
+    taskView.appendChild(saveButton);
+
+    saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
+
+    const editButton = document.querySelectorAll('.edit-btn');
+    editButton.style.display = "none"
+    
+  }
+  
+  function applyEditingTask(id, newLabel){
+    const task = data.find((e) => e.id === id);
+    if (!task) return;
+    task.label = newLabel;
+    renderTask(task);
+
     const taskView = document.getElementById(id);
+    const input = taskView.querySelector('input');
+    const saveButton =taskView.querySelector('.editSaveButton')
+
+    taskView.removeChild(input);
+    taskView.removeChild(saveButton);
+
+    const span =taskView.querySelector("span");
+    span.style.display = "inline-block";
+    const editButton = document.querySelector('.edit-btn');
+    editButton.style.display = "block"
+  }
+  
+
+  
+  renderPage();
+  renderTaskList(data);
+  kView = document.getElementById(id);
     const span = taskView.querySelector("span");
     span.style.display = "none";
     
@@ -109,8 +145,12 @@ function createTaskView(task) {
     taskView.appendChild(saveButton);
 
     saveButton.addEventListener("click", () => applyEditingTask(id, input.value));
-  }
 
+    const editButton = document.querySelectorAll('.edit-btn');
+    editButton.style.display = "none"
+    
+  }
+  
   function applyEditingTask(id, newLabel){
     const task = data.find((e) => e.id === id);
     if (!task) return;
@@ -119,12 +159,15 @@ function createTaskView(task) {
 
     const taskView = document.getElementById(id);
     const input = taskView.querySelector('input');
-    const saveButton =taskView.querySelector('.editSaveButton');
+    const saveButton =taskView.querySelector('.editSaveButton')
+
     taskView.removeChild(input);
     taskView.removeChild(saveButton);
 
-    const span = taskView.querySelector("span");
+    const span =taskView.querySelector("span");
     span.style.display = "inline-block";
+    const editButton = document.querySelector('.edit-btn');
+    editButton.style.display = "block"
   }
   
 
